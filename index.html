@@ -21,7 +21,7 @@ body {
 
 <script>
 
-var d = [
+var t6 = [
 "первый premier",
 "второй deuxieme",
 "третий troisieme",
@@ -31,22 +31,41 @@ var d = [
 "седьмой septieme",
 "восьмой huitieme",
 "девятый neuvieme",
-"десятый dixieme",
+"десятый dixieme"
+];
+
+var t7 = [
 "дробь fraction",
 "одна вторая un demi",
 "одна третья un tiers",
 "одна четвертая un quart"
 ];
 
+var d = t6;
+
 var n = 0;
+
+function topic() {
+
+var v = document.getElementById("t").value;
+
+if(v == "6") d = t6;
+if(v == "7") d = t7;
+
+next();
+
+}
 
 function next() {
 
 n = Math.floor(Math.random() * d.length);
 
-var a = d[n].split(" ");
+var s = d[n];
 
-document.getElementById("q").innerHTML = a[0];
+var p = s.indexOf(" ");
+
+document.getElementById("q").innerHTML =
+s.substring(0,p);
 
 document.getElementById("a").value = "";
 
@@ -56,11 +75,11 @@ document.getElementById("r").innerHTML = "";
 
 function check() {
 
-var t = d[n];
+var s = d[n];
 
-var p = t.indexOf(" ");
+var p = s.indexOf(" ");
 
-var ans = t.substring(p + 1);
+var ans = s.substring(p + 1);
 
 var v = document.getElementById("a").value;
 
@@ -77,7 +96,12 @@ document.getElementById("r").innerHTML = ans;
 
 </head>
 
-<body onload="next()">
+<body onload="topic()">
+
+<select id="t" onchange="topic()">
+<option value="6">6</option>
+<option value="7">7</option>
+</select>
 
 <div id="q"></div>
 
