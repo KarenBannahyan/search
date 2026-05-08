@@ -905,19 +905,32 @@ var d = [
 ];
 
 function f() {
-  var q = document.getElementById('s').value.toLowerCase();
-  var r = '';
-  var i;
 
-  for(i=0;i<d.length;i++) {
-    if(d[i].toLowerCase().indexOf(q)!=-1) {
-      r += d[i] + '\n';
-    }
-  }
+var q = document.getElementById('s').value;
 
-  document.getElementById('book').innerHTML = r || 'нет';
+var r = '';
+
+var i;
+
+for(i=0;i<d.length;i++) {
+
+if(d[i].match(q)) {
+
+r = r + d[i] + '\n';
+
+}
+
+}
+
+if(r=='') {
+r='нет';
+}
+
+document.getElementById('book').innerHTML = r;
+
 }
 </script>
+
 
 </head>
 
