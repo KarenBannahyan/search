@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#book {
+  width: 300px;
+  padding: 2px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+</style>
+
+<script>
+var d = [
+"первый premier",
+"второй deuxième",
+"третий troisième",
+"четвёртый quatrième",
+"пятый cinquième",
+"шестой sixième",
+"седьмой septième",
+"восьмой huitième",
+"девятый neuvième",
+"десятый dixième",
+"дробь fraction",
+"одна вторая un demi",
+"одна третья un tiers",
+"одна четвертая un quart"
+];
+
+function f() {
+  var q = document.getElementById('s').value.toLowerCase();
+  var r = '';
+  var i;
+
+  for(i=0;i<d.length;i++) {
+    if(d[i].toLowerCase().indexOf(q)!=-1) {
+      r += d[i] + '\n';
+    }
+  }
+
+  document.getElementById('book').innerHTML = r || 'нет';
+}
+</script>
+
+</head>
+
+<body>
+
+<input id="s">
+<button onclick="f()">ok</button>
+
+<div id="book"></div>
+
+</body>
+</html>
